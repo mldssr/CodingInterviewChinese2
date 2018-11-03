@@ -32,7 +32,7 @@ BinaryTreeNode* GetNext(BinaryTreeNode* pNode)
         return nullptr;
 
     BinaryTreeNode* pNext = nullptr;
-    if(pNode->m_pRight != nullptr)
+    if(pNode->m_pRight != nullptr)  // 此节点有右子树，返回右子树的左下角的节点
     {
         BinaryTreeNode* pRight = pNode->m_pRight;
         while(pRight->m_pLeft != nullptr)
@@ -40,7 +40,7 @@ BinaryTreeNode* GetNext(BinaryTreeNode* pNode)
 
         pNext = pRight;
     }
-    else if(pNode->m_pParent != nullptr)
+    else if(pNode->m_pParent != nullptr)    // 无右子树，有父节点，则一直向左上遍历，返回最后节点的父节点
     {
         BinaryTreeNode* pCurrent = pNode;
         BinaryTreeNode* pParent = pNode->m_pParent;

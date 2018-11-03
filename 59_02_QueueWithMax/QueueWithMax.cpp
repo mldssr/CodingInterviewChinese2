@@ -23,6 +23,7 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 
 using namespace std;
 
+// ЁИ©уты©╢
 template<typename T> class QueueWithMax
 {
 public:

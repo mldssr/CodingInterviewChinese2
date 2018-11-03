@@ -31,7 +31,7 @@ int digitAtIndex(int index)
 	if(index < 0)
 		return -1;
 
-	int digits = 1;
+	int digits = 1;	// 位数
 	while(true)
 	{
 		int numbers = countOfIntegers(digits);
@@ -45,6 +45,7 @@ int digitAtIndex(int index)
 	return -1;
 }
 
+// 返回 digits 位数字的个数，例如，2位数字共有90种
 int countOfIntegers(int digits)
 {
 	if(digits == 1)
@@ -63,6 +64,7 @@ int digitAtIndex(int index, int digits)
 	return number % 10;
 }
 
+//  返回 digits 位数字的起始数字，例如，2位数字从100开始
 int beginNumber(int digits)
 {
 	if(digits == 1)

@@ -67,7 +67,7 @@ bool hasDuplication(const std::string& str, int position[])
 // 方法一：动态规划
 int longestSubstringWithoutDuplication_2(const std::string& str)
 {
-    int curLength = 0;
+    int curLength = 0;  // 以当前字符结尾的最长不重复子串
     int maxLength = 0;
 
     int* position = new int[26];

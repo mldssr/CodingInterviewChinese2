@@ -29,9 +29,9 @@ template<typename T> class DynamicArray
 public:
     void Insert(T num)
     {
-        if(((min.size() + max.size()) & 1) == 0)
+        if(((min.size() + max.size()) & 1) == 0)    // 两边个数相同，插入右边的最小堆
         {
-            if(max.size() > 0 && num < max[0])
+            if(max.size() > 0 && num < max[0])  // 待插入的数理应插入左边，则用此数换出左边的最大值
             {
                 max.push_back(num);
                 push_heap(max.begin(), max.end(), less<T>());
@@ -45,9 +45,9 @@ public:
             min.push_back(num);
             push_heap(min.begin(), min.end(), greater<T>());
         }
-        else
+        else    // 两边个数不同，则一定是右边的多，所以插入左边的最大堆
         {
-            if(min.size() > 0 && min[0] < num)
+            if(min.size() > 0 && min[0] < num)  // 待插入的数理应插入右边，则用此数换出右边的最小值
             {
                 min.push_back(num);
                 push_heap(min.begin(), min.end(), greater<T>());
@@ -79,8 +79,8 @@ public:
     }
 
 private:
-    vector<T> min;
-    vector<T> max;
+    vector<T> min;  // 右边
+    vector<T> max;  // 左边
 };
 
 // ====================测试代码====================

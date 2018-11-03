@@ -41,7 +41,7 @@ void PrintMinNumber(const int* numbers, int length)
         sprintf(strNumbers[i], "%d", numbers[i]);
     }
  
-    qsort(strNumbers, length, sizeof(char*), compare);
+    qsort(strNumbers, length, sizeof(char*), compare);  // 还有这种操作
  
     for(int i = 0; i < length; ++i)
         printf("%s", strNumbers[i]);

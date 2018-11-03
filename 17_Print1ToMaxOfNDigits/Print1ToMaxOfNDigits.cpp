@@ -17,6 +17,7 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 // 打印出1、2、3一直到最大的3位数即999。
 
 #include <cstdio>
+#include <cstring>
 #include <memory>
 
 void PrintNumber(char* number);

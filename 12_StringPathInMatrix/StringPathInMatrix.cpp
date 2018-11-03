@@ -36,7 +36,7 @@ bool hasPath(const char* matrix, int rows, int cols, const char* str)
     if(matrix == nullptr || rows < 1 || cols < 1 || str == nullptr)
         return false;
 
-    bool *visited = new bool[rows * cols];
+    bool *visited = new bool[rows * cols];  // 记录矩阵中各个元素有没有被访问过
     memset(visited, 0, rows * cols);
 
     int pathLength = 0;
@@ -57,6 +57,7 @@ bool hasPath(const char* matrix, int rows, int cols, const char* str)
     return false;
 }
 
+// 判断从矩阵的<row, col>开始，能不能组成str中 (pathLength:end_index) 的子串
 bool hasPathCore(const char* matrix, int rows, int cols, int row,
     int col, const char* str, int& pathLength, bool* visited)
 {
@@ -66,11 +67,12 @@ bool hasPathCore(const char* matrix, int rows, int cols, int row,
     bool hasPath = false;
     if(row >= 0 && row < rows && col >= 0 && col < cols
         && matrix[row * cols + col] == str[pathLength]
-        && !visited[row * cols + col])
+        && !visited[row * cols + col])  // 如果可以匹配一个字符
     {
         ++pathLength;
         visited[row * cols + col] = true;
 
+        // 匹配下一字符
         hasPath = hasPathCore(matrix, rows, cols, row, col - 1,
             str, pathLength, visited)
             || hasPathCore(matrix, rows, cols, row - 1, col,
@@ -80,7 +82,7 @@ bool hasPathCore(const char* matrix, int rows, int cols, int row,
             || hasPathCore(matrix, rows, cols, row + 1, col,
                 str, pathLength, visited);
 
-        if(!hasPath)
+        if(!hasPath)    // 下一字符匹配失败，回溯
         {
             --pathLength;
             visited[row * cols + col] = false;

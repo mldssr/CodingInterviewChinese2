@@ -42,9 +42,9 @@ vector<int> maxInWindows(const vector<int>& num, unsigned int size)
         {
             maxInWindows.push_back(num[index.front()]);
 
-            while(!index.empty() && num[i] >= num[index.back()])
+            while(!index.empty() && num[i] >= num[index.back()])    // 把尾部不可能成为最大值的数删除
                 index.pop_back();
-            if(!index.empty() && index.front() <= (int) (i - size))
+            if(!index.empty() && index.front() <= (int) (i - size)) // 把头部滑出窗口的数删除
                 index.pop_front();
 
             index.push_back(i);

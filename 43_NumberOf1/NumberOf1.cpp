@@ -101,6 +101,10 @@ int PowerBase10(unsigned int n)
     return result;
 }
 
+// ====================方法三====================
+// 直接算最高位1、其他位为1的情况，加起来，为什么差了一点？
+// 例如 567，最高位为1，100种，十位为1，58种，个位为1,57种，共计217种，实际218种
+
 // ====================测试代码====================
 void Test(const char* testName, int n, int expected)
 {
@@ -135,6 +139,10 @@ void Test()
 int main(int argc, char* argv[])
 {
     Test();
+
+    int ans1 = NumberOf1Between1AndN_Solution1(567);
+    int ans2 = NumberOf1Between1AndN_Solution2(567);
+    printf("%d  %d\n", ans1, ans2);
 
     return 0;
 }

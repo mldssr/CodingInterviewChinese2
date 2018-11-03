@@ -14,6 +14,7 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 
 // 面试题10：斐波那契数列
 // 题目：写一个函数，输入n，求斐波那契（Fibonacci）数列的第n项。
+// n从0开始，f(n)依次为：0 1 1 2 3 5 ...
 
 #include <cstdio>
 
@@ -26,7 +27,7 @@ long long Fibonacci_Solution1(unsigned int n)
     if(n == 1)
         return 1;
 
-    return Fibonacci_Solution1(n - 1) + Fibonacci_Solution1(n - 2);
+    return Fibonacci_Solution1(n - 1) + Fibonacci_Solution1(n - 2); // 产生大量重复调用
 }
 
 // ====================方法2：循环====================

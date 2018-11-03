@@ -29,7 +29,7 @@ int movingCount(int threshold, int rows, int cols)
     if(threshold < 0 || rows <= 0 || cols <= 0)
         return 0;
 
-    bool *visited = new bool[rows * cols];
+    bool *visited = new bool[rows * cols];  // 记录各个方格有没有被访问过
     for(int i = 0; i < rows * cols; ++i)
         visited[i] = false;
 
@@ -41,11 +41,12 @@ int movingCount(int threshold, int rows, int cols)
     return count;
 }
 
+// 返回方格 <row, col> 开始能走的到达范围的格子数
 int movingCountCore(int threshold, int rows, int cols, int row,
     int col, bool* visited)
 {
     int count = 0;
-    if(check(threshold, rows, cols, row, col, visited))
+    if(check(threshold, rows, cols, row, col, visited)) // 如果方格 <row, col> 能走
     {
         visited[row * cols + col] = true;
 
@@ -62,6 +63,7 @@ int movingCountCore(int threshold, int rows, int cols, int row,
     return count;
 }
 
+// 判断方格 <row, col> 能不能走
 bool check(int threshold, int rows, int cols, int row, int col,
     bool* visited)
 {
